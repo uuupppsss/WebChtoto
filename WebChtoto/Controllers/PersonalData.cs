@@ -33,7 +33,7 @@ namespace WebChtoto.Controllers
         }
 
         [HttpPost("SearchHumanPassport")]
-        public async Task <ActionResult<Passport>> SearchHumanPassport(Search search)
+        public ActionResult<Passport> SearchHumanPassport(Search search)
         {
             if (string.IsNullOrEmpty(search.FirstName) ||
                 string.IsNullOrEmpty(search.LastName))
@@ -46,7 +46,7 @@ namespace WebChtoto.Controllers
         }
         private bool IsSnilseValid(Snils snils)
         {
-            if (snils.Number.Length != 11||string.IsNullOrEmpty(snils.LastName) || string.IsNullOrEmpty(snils.FirstName))
+            if (snils.Number.Length != 11||string.IsNullOrEmpty(snils.LastName) || string.IsNullOrEmpty(snils.FirstName)||!int.TryParse(snils.Number, out _))
                 return false;
             return true;
         }
