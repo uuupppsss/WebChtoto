@@ -70,7 +70,7 @@ namespace WebChtoto.Controllers
 
         private bool IsSnilseValid(Snils snils)
         {
-            if (snils.Number.Length != 11||string.IsNullOrEmpty(snils.LastName) || string.IsNullOrEmpty(snils.FirstName)||!int.TryParse(snils.Number, out _))
+            if (snils.Number.ToString().Length != 11||string.IsNullOrEmpty(snils.LastName) || string.IsNullOrEmpty(snils.FirstName))
                 return false;
             return true;
         }
